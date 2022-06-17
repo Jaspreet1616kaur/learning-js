@@ -234,3 +234,18 @@ function addEvenPositions() {
 }
 myResult = addEvenPositions(myNumbers);
 console.log(" sum of even positioned elements is " + myResult);
+
+///start dom exercise///
+// Exercise 1 - Create HTML list elements with JS//
+let myBandList = ["Dire Straits', 'Kansas', 'Steely Dan"];
+
+function addBands(myParameter) {
+  for (i = 0; i < myParameter.length; i++) {
+    const ulTag = document.querySelector("ul");
+    const listItem = document.createElement("li");
+    listItem.textContent = myParameter[i];
+    ulTag.appendChild(listItem);
+  }
+  console.log(" List items of bands generated.");
+}
+addBands(myBandList);
