@@ -49,6 +49,9 @@ console.log(" first name sort", first);
 let last = classNameSort[classNameSort.length - 1];
 console.log("last name sort", last);
 
+// print every element of an array in the console
+classNameSort.forEach((e) => console.log(e));
+
 //looping over an array even number//
 let studentage = ["23", "34", "21", "27", "29", "30"];
 let i = 0;
@@ -90,20 +93,25 @@ function print_array_element(arr, i) {
 }
 print_array_element(position, index);
 
-///Repate number exercise:6///
+///Repeate number exercise:6///
 let numeric = [
-  3, 6, 67, 6, 23, 11, 100, 8, 93, 0, 17, 24, 7, 1, 33, 45, 28, 33, 23, 12, 99,
-  100,
+  3, 6, 67, 6, 23, 11, 100, 8, 93, 6, 0, 17, 24, 7, 1, 33, 45, 28, 33, 23, 12,
+  99, 100,
 ];
 console.log(
   "repeat number",
-  numeric.filter((a, b, c) => c.indexOf(a) !== b)
+  numeric.filter((a, b, c) => {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+    return c.indexOf(a) !== b;
+  })
 );
 ///exercise :7 color///
 let color = ["Red", "Green", "White", "Black"];
 const newColor = function () {
   console.log("about color", color.join());
-  /// console.log(color.join("+"));///
 };
 newColor();
 
@@ -167,9 +175,10 @@ console.log("second", MULTIPLY(23, 43));
 console.log("third", MULTIPLY(13, 3));
 
 ///Exercise 5 replace  word with another value///
-var myArray = ["j", "a", "s", "p", "r", "e", "e", "t", "k", "a", "a", "r"];
-
-function replaceSCharacters(myArray) {
+// var myArray = ["j", "a", "s", "p", "r", "e", "e", "t", "k", "a", "a", "r"];
+var myString = "jaspreet kaar";
+function replaceSCharacters(myString) {
+  var myArray = myString.split("");
   for (i = 0; i < myArray.length; i++) {
     if (myArray[i] == "a") {
       myArray.splice(i, 1, "3");
@@ -178,8 +187,9 @@ function replaceSCharacters(myArray) {
   console.log(" Replacing array elements with splice(): " + myArray);
 }
 
-replaceSCharacters(myArray);
+replaceSCharacters(myString);
 
+///exercise 6 sum of number and smallest number ///
 var myArray = [2, 3, 4, 5, 6, 7, 8, 9, 10];
 var sum = 0;
 
@@ -235,9 +245,9 @@ function addEvenPositions() {
 myResult = addEvenPositions(myNumbers);
 console.log(" sum of even positioned elements is " + myResult);
 
-///start dom exercise///
+///Start DOM Exercise///
 // Exercise 1 - Create HTML list elements with JS//
-let myBandList = ["Dire Straits', 'Kansas', 'Steely Dan"];
+let myBandList = ["Kansas", "jaspreet", "Steely Dan"];
 
 function addBands(myParameter) {
   for (i = 0; i < myParameter.length; i++) {
@@ -249,3 +259,23 @@ function addBands(myParameter) {
   console.log(" List items of bands generated.");
 }
 addBands(myBandList);
+
+///Exercise :2 function called addMultiTable(rows, cols) that will create a multiplication///
+function addMultiTable(rows, cols) {
+  myBody = document.querySelector("body");
+  const tbl = document.createElement("table");
+  tbl.setAttribute("class", "myTable");
+  myBody.appendChild(tbl);
+  for (let i = 0; i < rows; i++) {
+    let mycurrent_row = document.createElement("tr");
+
+    for (let i = 0; i < cols; i++) {
+      let mycurrent_col = document.createElement("td");
+
+      mycurrent_row.appendChild(mycurrent_col);
+      tbl.appendChild(mycurrent_row);
+    }
+  }
+}
+
+addMultiTable(5, 5);
